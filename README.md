@@ -21,6 +21,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 - **Development server:** `pnpm dev` (uses Turbopack for fast builds)
 - **Build:** `pnpm build` (production build with Turbopack)
+- **Testing:** `pnpm test` (run Jest tests)
 - **Linting:** `pnpm lint` (auto-fix) or `pnpm lint:check` (check only)
 - **Formatting:** `pnpm format` (auto-fix) or `pnpm format:check` (check only)
 - **Type checking:** `pnpm type-check`
