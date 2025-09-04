@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { Suggestion } from '@/types';
+import UserPrompt from '@/components/UserPrompt';
+import Results from '@/components/Results';
 
 export default function HomePage() {
   const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
@@ -13,6 +15,17 @@ export default function HomePage() {
       <h1 className="text-xl leading-relaxed font-extrabold md:text-3xl">
         The Journalist Assistant
       </h1>
+      <UserPrompt
+        setSuggestions={setSuggestions}
+        setIsGenerating={setIsGenerating}
+        setHasGenerated={setHasGenerated}
+        isGenerating={isGenerating}
+      />
+      <Results
+        suggestions={suggestions}
+        isGenerating={isGenerating}
+        hasGenerated={hasGenerated}
+      />
     </div>
   );
 }
