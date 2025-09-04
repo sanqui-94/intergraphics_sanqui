@@ -12,7 +12,7 @@ class JSONSuggestionDataSource implements SuggestionDataSource {
   async searchSuggestions(query: string): Promise<Suggestion[]> {
     const searchTerm = query.toLowerCase();
 
-    return this.suggestions.filter(suggestion => {
+    return this.suggestions.filter((suggestion: string) => {
       return suggestion.toLowerCase().includes(searchTerm);
     });
   }
