@@ -5,6 +5,7 @@ interface SuggestionDataSource {
   searchSuggestions: (query: string) => Promise<Suggestion[]>;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 class JSONSuggestionDataSource implements SuggestionDataSource {
   private suggestions: Suggestion[] =
     (suggestionsData.suggestions as Suggestion[]) || [];
