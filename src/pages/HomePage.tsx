@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { Suggestion } from '@/types';
-import UserPrompt from '@/components/UserPrompt';
-import Results from '@/components/Results';
+import { useState } from "react";
+import { Suggestion } from "@/types";
+import UserPrompt from "@/components/UserPrompt";
+import Results from "@/components/Results";
 
 export default function HomePage() {
   const [suggestions, setSuggestions] = useState<Suggestion[]>([]);

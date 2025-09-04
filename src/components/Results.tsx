@@ -1,5 +1,5 @@
-import { Suggestion } from '@/types';
-import CallToAction from '@/components/CallToAction';
+import { Suggestion } from "@/types";
+import CallToAction from "@/components/CallToAction";
 
 interface ResultsProps {
   suggestions: Suggestion[];
@@ -27,7 +27,7 @@ export default function Results({
             <>
               <div className="pb-2 text-sm text-stone-200">
                 Found {suggestions.length} suggestion
-                {suggestions.length !== 1 ? 's' : ''}
+                {suggestions.length !== 1 ? "s" : ""}
               </div>
               <div className="space-y-1">
                 <ul className="list-disc pl-6 text-stone-100 marker:text-stone-400">

@@ -1,7 +1,7 @@
-'use client';
-import { Suggestion } from '@/types';
-import { suggestionService } from '@/lib/suggestionService';
-import { useState } from 'react';
+"use client";
+import { Suggestion } from "@/types";
+import { suggestionService } from "@/lib/suggestionService";
+import { useState } from "react";
 
 interface UserPromptProps {
   setSuggestions: (suggestions: Suggestion[]) => void;
@@ -20,7 +20,7 @@ export default function UserPrompt({
   setHasGenerated,
   isGenerating,
 }: UserPromptProps) {
-  const [inputValue, setInputValue] = useState<string>('');
+  const [inputValue, setInputValue] = useState<string>("");
 
   async function generateSuggestions(query: string) {
     if (!query.trim()) {
@@ -37,7 +37,7 @@ export default function UserPrompt({
       setSuggestions(results);
       setHasGenerated(true);
     } catch (error) {
-      console.error('Error while generating suggestions: ', error);
+      console.error("Error while generating suggestions: ", error);
       setSuggestions([]);
       setHasGenerated(true);
     } finally {
@@ -62,12 +62,12 @@ export default function UserPrompt({
         disabled={isGenerating}
         className={`text-md rounded-full px-6 py-2 whitespace-nowrap transition-colors ${
           isGenerating
-            ? 'cursor-not-allowed bg-stone-400 text-stone-200'
-            : 'bg-stone-800 text-white hover:bg-stone-700'
+            ? "cursor-not-allowed bg-stone-400 text-stone-200"
+            : "bg-stone-800 text-white hover:bg-stone-700"
         }`}
         onClick={handleClick}
       >
-        {isGenerating ? 'Generating...' : 'Generate'}
+        {isGenerating ? "Generating..." : "Generate"}
       </button>
     </div>
   );

@@ -1,5 +1,5 @@
-import { Suggestion } from '@/types';
-import suggestionsData from '@/data/suggestions.json';
+import { Suggestion } from "@/types";
+import suggestionsData from "@/data/suggestions.json";
 
 interface SuggestionDataSource {
   searchSuggestions: (query: string) => Promise<Suggestion[]>;
@@ -18,6 +18,29 @@ class JSONSuggestionDataSource implements SuggestionDataSource {
   }
 }
 
+class OpenAISuggestionDataSource implements SuggestionDataSource {
+  async searchSuggestions(query: string): Promise<Suggestion[]> {
+    try {
+      const response = await fetch("/api/suggestions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query }),
+      });
+
+      if (!response.ok) {
+        console.error(`API error: ${response.status} ${response.statusText}`);
+        return [];
+      }
+
+      const data = await response.json();
+      return data.suggestions || [];
+    } catch (error) {
+      console.error("API call error:", error);
+      return [];
+    }
+  }
+}
+
 class SuggestionService {
   private dataSource: SuggestionDataSource;
 
@@ -31,5 +54,5 @@ class SuggestionService {
 }
 
 export const suggestionService = new SuggestionService(
-  new JSONSuggestionDataSource()
+  new OpenAISuggestionDataSource()
 );
