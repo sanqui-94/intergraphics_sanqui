@@ -36,7 +36,7 @@ describe("UserPrompt", () => {
     jest.restoreAllMocks();
   });
 
-  it("renders and input and generate button", () => {
+  it("renders an input and generate button", () => {
     render(<UserPrompt {...defaultProps} />);
 
     expect(
