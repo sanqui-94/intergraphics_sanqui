@@ -27,6 +27,11 @@ class OpenAISuggestionDataSource implements SuggestionDataSource {
         body: JSON.stringify({ query }),
       });
 
+      if (!response.ok) {
+        console.error(`API error: ${response.status} ${response.statusText}`);
+        return [];
+      }
+
       const data = await response.json();
       return data.suggestions || [];
     } catch (error) {
